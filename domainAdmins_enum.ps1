@@ -1,5 +1,5 @@
 $domainObj = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
-$PDC = ($domainObj.PdcRoleOwner).Name
+$PDC = ($domainObj.PdcRoleOwner).
 $SearchString = "LDAP://"
 $SearchString += $PDC + "/"
 $DistinguishedName = "DC=$($domainObj.Name.Replace('.', ',DC='))"
