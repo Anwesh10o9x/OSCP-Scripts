@@ -15,6 +15,6 @@ Foreach($obj in $Result)
     {
         $prop
     }
-}
+    
     Write-Host "------------------------"
 }
