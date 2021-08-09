@@ -7,14 +7,11 @@ $SearchString += $DistinguishedName
 $Searcher = New-Object System.DirectoryServices.DirectorySearcher([ADSI]$SearchString)
 $objDomain = New-Object System.DirectoryServices.DirectoryEntry
 $Searcher.SearchRoot = $objDomain
-$Searcher.filter="samAccountType=805306368"
+$Searcher.filter="(objectClass=Computer)"
 $Result = $Searcher.FindAll()
 Foreach($obj in $Result)
 {
-    Foreach($prop in $obj.Properties)
-    {
-        $prop
-    }
-    
-    Write-Host "------------------------"
+    $obj.Properties.cn
+    $obj.Properties.operatingsystem
+    Write-Host "---------------------------"
 }
